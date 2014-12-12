@@ -1,0 +1,20 @@
+---
+- name: apt autoremove
+  shell: |
+    apt-get autoremove -y
+- name: apt clean
+  shell: |
+    echo "disk usage: `du -hs /var/cache/apt`"
+    apt-get clean
+- name: remove apt lists
+  shell: |
+    echo "disk usage: `du -hs /var/lib/apt/lists`"
+    rm -rf /var/lib/apt/lists/*
+- name: remove tmp files
+  shell: |
+    echo "disk usage: `du -hs /tmp`"
+    rm -rf /tmp/*
+- name: truncate log lifes
+  shell: |
+    echo "disk usage: `du -hs /var/log`"
+    find /tmp -type f -exec truncate -s 0 {} \;

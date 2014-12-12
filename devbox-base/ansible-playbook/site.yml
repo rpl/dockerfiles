@@ -1,0 +1,6 @@
+- name: provision devbox-base 
+  hosts: localhost
+  roles:
+  - container-tweaks           ### changes needed to prevents errors/bugs running into a container
+  - cli-tools                  ### install and configure common cli developer tools (e.g. emacs, tmux, zsh etc.)
+  - container-cleanup          ### cleanup container 

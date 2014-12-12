@@ -1,0 +1,44 @@
+---
+- name: install cli utils
+  apt: name={{item}} update_cache=yes cache_valid_time=3600
+  with_items:
+  - zsh
+  - tmux
+  - emacs
+  - gnupg ## needed by pass
+  - tree  ## needed by pass
+  - git
+  - mercurial
+
+- name: install pip dependencies
+  apt: name={{item}} update_cache=yes
+  with_items:
+  - python-pip
+  - python-virtualenv
+
+- name: install powerline and tmuxp from pip
+  pip: name={{item}}
+  with_items:
+  - tmuxp
+
+- name: install powerline from github repo
+  shell: |
+    pip install git+git://github.com/Lokaltog/powerline
+
+- name: install pass
+  shell: |
+    which pass || (
+      cd /tmp && \
+      git clone http://git.zx2c4.com/password-store && \
+      cd password-store && \
+      make install && \
+      cd / && \
+      rm -rf /tmp/password-store
+    )
+
+- name: install pass zsh completion
+  shell: |
+    which pass.zsh-completion || (
+      curl -sSL http://git.zx2c4.com/password-store/plain/src/completion/pass.zsh-completion > /usr/local/bin/pass.zsh-completion &&
+      chmod a+x /usr/local/bin/pass.zsh-completion
+    )

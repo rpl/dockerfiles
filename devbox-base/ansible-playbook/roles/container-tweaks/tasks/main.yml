@@ -1,0 +1,9 @@
+---
+- name: create a fake initctl
+  shell: |
+    dpkg-divert --local --rename --add /sbin/initctl
+
+- name: create a fake systemd-logind
+  shell: |
+    touch /etc/init.d/systemd-logind
+    chmod a+x /etc/init.d/systemd-logind
