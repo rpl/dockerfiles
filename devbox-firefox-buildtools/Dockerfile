@@ -9,4 +9,5 @@ ADD ansible-playbook /etc/ansible/playbooks/devbox-firefox-buildtools
 RUN cd /etc/ansible/playbooks/devbox-firefox-buildtools; \
     ln -s /etc/ansible/playbooks/devbox-base/roles/container-cleanup \
           /etc/ansible/playbooks/devbox-firefox-buildtools/roles/container-cleanup ; \
+    apt-get update ; \
     ansible-playbook site.yml -c local

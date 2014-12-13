@@ -7,6 +7,7 @@ ADD ansible-playbook /etc/ansible/playbooks/devbox-base
 
 # run provisioning
 RUN cd /etc/ansible/playbooks/devbox-base; \
+    apt-get update ; \
     ansible-playbook site.yml -c local
 
 # base cli environment vars

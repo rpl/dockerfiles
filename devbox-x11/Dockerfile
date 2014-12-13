@@ -9,4 +9,5 @@ ADD ansible-playbook /etc/ansible/playbooks/devbox-x11
 RUN cd /etc/ansible/playbooks/devbox-x11; \
     ln -s /etc/ansible/playbooks/devbox-base/roles/container-cleanup \
           /etc/ansible/playbooks/devbox-x11/roles/container-cleanup ; \
+    apt-get update ; \
     ansible-playbook site.yml -c local
