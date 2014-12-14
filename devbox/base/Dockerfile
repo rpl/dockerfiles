@@ -6,8 +6,8 @@ MAINTAINER Luca Greco <luca.greco@alcacoop.it>
 ADD ansible-playbook /etc/ansible/playbooks/devbox-base
 
 # run provisioning
-RUN apt-get update ; \
-    ansible-playbook /etc/ansible/playbooks/devbox-base/site.yml -c local ; \
+RUN apt-get update && \
+    ansible-playbook /etc/ansible/playbooks/devbox-base/site.yml -c local && \
     ansible-playbook /etc/ansible/playbooks/devbox-base/cleanup.yml -c local
 
 # base cli environment vars

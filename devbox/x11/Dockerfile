@@ -1,4 +1,4 @@
-FROM drpl/devbox-base
+FROM drpl/devbox-base:latest
 
 MAINTAINER Luca Greco <luca.greco@alcacoop.it>
 
@@ -6,6 +6,6 @@ MAINTAINER Luca Greco <luca.greco@alcacoop.it>
 ADD ansible-playbook /etc/ansible/playbooks/devbox-x11
 
 # run provisioning
-RUN apt-get update ; \
-    ansible-playbook /etc/ansible/playbooks/devbox-x11/site.yml -c local ; \
+RUN apt-get update && \
+    ansible-playbook /etc/ansible/playbooks/devbox-x11/site.yml -c local && \
     ansible-playbook /etc/ansible/playbooks/devbox-base/cleanup.yml -c local

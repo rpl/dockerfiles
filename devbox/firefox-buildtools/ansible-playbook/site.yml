@@ -2,4 +2,3 @@
   hosts: localhost
   roles:
   - firefox-buildtools         ### install and configure tools needed to build firefox
-  - container-cleanup          ### cleanup container

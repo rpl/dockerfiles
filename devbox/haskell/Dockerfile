@@ -1,4 +1,4 @@
-FROM drpl/devbox-x11
+FROM drpl/devbox-x11:latest
 
 ## BASED ON: https://github.com/darinmorrison/docker-haskell/blob/master/7.8/Dockerfile
 
