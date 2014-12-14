@@ -6,10 +6,13 @@
   - zsh
   - tmux
   - emacs
-  - gnupg ## needed by pass
-  - tree  ## needed by pass
   - git
   - mercurial
+  - gnupg ## needed by pass
+  - tree  ## needed by pass
+  - install-info ## needed by emacs prelude
+  - texinfo      ## needed by emacs prelude
+  - ack-grep     ## needed by emacs prelude
 
 - name: install pip dependencies
   apt: name={{item}} update_cache=yes

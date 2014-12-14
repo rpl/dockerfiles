@@ -1,0 +1,4 @@
+- name: provision devbox-base
+  hosts: localhost
+  roles:
+  - container-cleanup          ### cleanup container

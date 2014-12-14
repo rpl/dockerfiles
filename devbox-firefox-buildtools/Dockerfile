@@ -6,8 +6,6 @@ MAINTAINER Luca Greco <luca.greco@alcacoop.it>
 ADD ansible-playbook /etc/ansible/playbooks/devbox-firefox-buildtools
 
 # run provisioning
-RUN cd /etc/ansible/playbooks/devbox-firefox-buildtools; \
-    ln -s /etc/ansible/playbooks/devbox-base/roles/container-cleanup \
-          /etc/ansible/playbooks/devbox-firefox-buildtools/roles/container-cleanup ; \
-    apt-get update ; \
-    ansible-playbook site.yml -c local
+RUN apt-get update ; \
+    ansible-playbook /etc/ansible/playbooks/devbox-firefox-buildtools/site.yml -c local ; \
+    ansible-playbook /etc/ansible/playbooks/devbox-base/cleanup.yml -c local

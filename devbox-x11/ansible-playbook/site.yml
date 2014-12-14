@@ -1,5 +1,4 @@
 - name: provision devbox-x11
   hosts: localhost
   roles:
-  - x11-tools                  ### install and configure common x11 developer tools (e.g. xpra, gitg, thg, meld etc.)
-  - container-cleanup          ### cleanup container
+  - x11-tools     ### install and configure common x11 developer tools (e.g. xpra, gitg, thg, meld etc.)
